@@ -1,5 +1,5 @@
 import { productos } from './Productos.js';
-import { agregarAlCarrito } from './funciones Carrito.js'; 
+import { agregarAlCarrito } from './funcionesCarrito.js';
 import { obtenerCarrito } from './storage.js';
 import { actualizarContador } from './ui.js';
 

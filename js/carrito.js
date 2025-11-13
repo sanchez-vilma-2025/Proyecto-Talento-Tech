@@ -1,5 +1,5 @@
 import {obtenerCarrito} from "./storage.js";
-import { eliminarProducto, vaciarCarrito } from "./funciones Carrito.js";
+import { eliminarProducto, vaciarCarrito } from "./funcionesCarrito.js";
 import {actualizarCarrito} from "./ui.js";
 
 const renderizarCarrito =() =>{
