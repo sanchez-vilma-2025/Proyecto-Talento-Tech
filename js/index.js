@@ -1,12 +1,13 @@
-import { productos } from './producto.js';
+import { productos } from './Productos.js';
 import { agregarAlCarrito } from './funcionesCarrito.js'; 
 import { obtenerCarrito } from './storage.js';
 import { actualizarContador } from './ui.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+   const contenedor= document.getElementById ('contenedor-tarjeta');
     const carrito = obtenerCarrito();
-    actualizarContador(carrito);
-
+    actualizarContador(carrito);    
+    
     productos.forEach(producto => {
         const tarjeta = document.createElement('article');
         tarjeta.classList.add('tarjeta-producto');
