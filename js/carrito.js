@@ -1,0 +1,67 @@
+import {obtenerCarrito} from "./storage.js";
+import { eliminarProducto, vaciarCarrito } from "./funciones Carrito.js";
+import {actualizarCarrito} from "./ui.js";
+
+const renderizarCarrito =() =>{
+    const carrito = obtenerCarrito()
+    actualizarContador (carrito);
+
+    const contenedor = document.getElementById ("contenedor-carrito");
+    const divAcciones = document.getElementById ("acciones-carrito");
+
+    contenedor.innerHTML ="";
+    divAcciones.innerHTML ="";
+
+    if (carrito.length {
+        const mensaje = document.createElement ("p")
+        mensaje.classList.add ("mensaje-carroto-vacio")
+        mensaje.textContent ="No hay productos en el carrito";
+
+        contenedor.appendChild (mensaje);
+
+        return;
+    }
+    carrito. forEach ((producto, indice) =>{
+        const tarjeta = document.createElement ("article");
+        tarjeta.classList.add ("tarjeta-producto");
+
+        const img = document.createElement ("img");
+        img.src = `../${producto.img}`;
+        img.alt = producto.nombre;
+
+        const titulo = document.createElement ("h3");
+        titulo.textContent = producto.nombre;
+
+        const precio = document.createElement ("p");
+        precio.textContent = `$${producto.precio}`;
+
+        const btnElinar = document.createElement ("button");
+        btnElinar.classList.add ("btn");
+        btnElinar.classList.add = "btn-eliminar-carrito";
+        btnElinar.textContent = "Eliminar";
+        btnElinar.addEventListener ("click", () =>{
+            eliminarProducto (indice);
+            renderizarCarrito();
+        });
+
+        tarjeta.appendChild (img);
+        tarjeta.appendChild (titulo);
+        tarjeta.appendChild (precio);
+        tarjeta.appendChild (btnElinar);
+
+        contenedor.appendChild (tarjeta);
+    });
+
+    const btnVaciar = document.createElement ("button");
+    btnVaciar.classList.add ("btn");
+    btnVaciar.classList.add ("btn-vaciar-carrito");
+    btnVaciar.textContent = "Vaciar carrito";
+    btnVaciar.addEventListener ("click", () =>{
+        vaciarCarrito();
+        renderizarCarrito();
+    });
+
+    divAcciones.appendChild (btnVaciar);
+
+    document.addEventListener ("DOMContentLoaded", renderizarCarrito);
+}
