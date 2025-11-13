@@ -12,7 +12,7 @@ const renderizarCarrito =() =>{
     contenedor.innerHTML ="";
     divAcciones.innerHTML ="";
 
-    if (carrito.length {
+    if (carrito.length) {
         const mensaje = document.createElement ("p")
         mensaje.classList.add ("mensaje-carroto-vacio")
         mensaje.textContent ="No hay productos en el carrito";
@@ -35,11 +35,11 @@ const renderizarCarrito =() =>{
         const precio = document.createElement ("p");
         precio.textContent = `$${producto.precio}`;
 
-        const btnElinar = document.createElement ("button");
-        btnElinar.classList.add ("btn");
-        btnElinar.classList.add = "btn-eliminar-carrito";
-        btnElinar.textContent = "Eliminar";
-        btnElinar.addEventListener ("click", () =>{
+        const btnEliminar = document.createElement ("button");
+        btnEliminar.classList.add ("btn");
+        btnEliminar.classList.add = "btn-eliminar-carrito";
+        btnEliminar.textContent = "Eliminar";
+        btnEliminar.addEventListener ("click", () =>{
             eliminarProducto (indice);
             renderizarCarrito();
         });
@@ -65,3 +65,4 @@ const renderizarCarrito =() =>{
 
     document.addEventListener ("DOMContentLoaded", renderizarCarrito);
 }
+ 
