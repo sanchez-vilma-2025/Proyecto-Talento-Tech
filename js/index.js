@@ -1,10 +1,10 @@
 import { productos } from './Productos.js';
-import { agregarAlCarrito } from './funcionesCarrito.js'; 
+import { agregarAlCarrito } from './funciones Carrito.js'; 
 import { obtenerCarrito } from './storage.js';
 import { actualizarContador } from './ui.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-   const contenedor= document.getElementById ('contenedor-tarjeta');
+   const contenedor= document.getElementById ('contenedor-tarjetas');
     const carrito = obtenerCarrito();
     actualizarContador(carrito);    
     
