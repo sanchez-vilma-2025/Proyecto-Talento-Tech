@@ -1,7 +1,7 @@
  export const productos =[
-{id: "1", nombre:"foto muñeca", img:"/img/animie_foto.png", precio:20}
-{id: "2", nombre: "como hacer ciencia",img: "img/ciencia_2.png", precio:25}
-{id: "3", nombre: "Robot trabajador", img: "/img/Robot_foto.png", precio:30}
+{id: "1", nombre:"foto muñeca", img:"/img/animie_foto.png", precio:20},
+{id: "2", nombre: "como hacer ciencia",img: "img/ciencia_2.png", precio:25},
+{id: "3", nombre: "Robot trabajador", img: "/img/Robot_foto.png", precio:30},
 {id: "4", nombre: "La vida del futuro",img: "/img/tecnologia_2 png", precio: 45}
  ] 
  
