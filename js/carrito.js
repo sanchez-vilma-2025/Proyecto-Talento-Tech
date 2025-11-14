@@ -35,7 +35,7 @@ const renderizarCarrito = () => {
         const precio = document.createElement("p");
         precio.textContent = `$${producto.precio}`;
 
-        cconst btnEliminar = document.createElement("button");
+        const btnEliminar = document.createElement("button");
         btnEliminar.classList.add("btn");
         btnEliminar.classList.add("btn-eliminar-carrito");
         btnEliminar.textContent = "Eliminar";
