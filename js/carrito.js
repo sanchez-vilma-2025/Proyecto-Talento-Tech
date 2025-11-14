@@ -7,17 +7,17 @@ const renderizarCarrito = () => {
     actualizarContador(carrito);
 
     const contenedor = document.getElementById("contenedor-carrito");
+
     const divAcciones = document.getElementById("acciones-carrito");
 
     contenedor.innerHTML = "";
     divAcciones.innerHTML = "";
 
-    
     if (carrito.length) {
         const mensaje = document.createElement("p");
         mensaje.classList.add("mensaje-carrito-vacio");
         mensaje.textContent = "No hay productos en el carrito";
-
+        
         contenedor.appendChild(mensaje);
         return;
     }
@@ -27,7 +27,7 @@ const renderizarCarrito = () => {
         tarjeta.classList.add("tarjeta-producto");
 
         const img = document.createElement("img");
-        img.src = producto.img;
+        img.src = `../${producto.img}`;
         img.alt = producto.nombre;
 
         const titulo = document.createElement("h3");
@@ -37,10 +37,11 @@ const renderizarCarrito = () => {
         precio.textContent = `$${producto.precio}`;
 
         const btnEliminar = document.createElement("button");
-        btnEliminar.classList.add("btn", "btn-eliminar-carrito"); 
+        btnEliminar.classList.add("btn");
+        btnEliminar.classList.add("btn-eliminar-carrito");
         btnEliminar.textContent = "Eliminar";
         btnEliminar.addEventListener("click", () => {
-            eliminarProducto(indice);
+      eliminarProducto(indice);
             renderizarCarrito();
         });
 
@@ -54,10 +55,10 @@ const renderizarCarrito = () => {
 
     const btnVaciar = document.createElement("button");
     btnVaciar.classList.add("btn");
-    btnVaciar.classList.add = ("btn-vaciar-carrito");
-    btnVaciar.textContent = "vaciar carrito";
+    btnVaciar.classList.add("btn-vaciar-carrito");
+    btnVaciar.textContent = "Vaciar carrito";
     btnVaciar.addEventListener("click", () => {
-        vaciarCarrito();
+    vaciarCarrito();
         renderizarCarrito();
     });
 
@@ -65,3 +66,9 @@ const renderizarCarrito = () => {
 };
 
 document.addEventListener("DOMContentLoaded", renderizarCarrito);
+
+
+
+
+
+
