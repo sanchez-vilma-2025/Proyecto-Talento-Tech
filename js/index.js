@@ -4,48 +4,49 @@ import { obtenerCarrito } from './storage.js';
 import { actualizarContador } from './ui.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-   const contenedor = document.getElementById('contenedor-tarjetas');
+    const contenedor = document.getElementById('contenedor-tarjetas');
     const carrito = obtenerCarrito();
-    actualizarContador(carrito); 
-    
+    actualizarContador(carrito);
+
     fetch('./data/productos.json')
-    .then((res) =>{})
-    if(!res.ok){thow new Error(`Error HTTP status: ${res.status}`);}
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error(`Error HTTP status: ${res.status}`);
+            }
+            return res.json();
+        })
+        .then((data) => {
+            data.forEach(producto => {
+                const tarjeta = document.createElement('article');
+                tarjeta.classList.add('tarjeta-producto');
 
-    return res.json()
-    })
+                const img = document.createElement('img');
+                img.src = producto.img;
+                img.alt = producto.nombre;
 
-    .then((data) => {
-    data.forEach(producto => {
-        const tarjeta = document.createElement('article');
-        tarjeta.classList.add('tarjeta-producto');
+                const titulo = document.createElement('h3');
+                titulo.textContent = producto.nombre;
 
-        const img = document.createElement('img');
-        img.src = producto.img;
-        img.alt = producto.nombre;
+                const precio = document.createElement('p');
+                precio.textContent = `$${producto.precio}`;
 
-        const titulo = document.createElement('h3');
-        titulo.textContent = producto.nombre;
+                const boton = document.createElement('button');
+                boton.classList.add('btn');
+                boton.textContent = 'Agregar al carrito';
+                boton.addEventListener('click', () => {
+                    agregarAlCarrito(producto);
+                });
 
-        const precio = document.createElement('p');
-        precio.textContent = `$${producto.precio}`;
+                tarjeta.appendChild(img);
+                tarjeta.appendChild(titulo);
+                tarjeta.appendChild(precio);
+                tarjeta.appendChild(boton);
 
-        const boton = document.createElement('button');
-        boton.classList.add('btn');
-        boton.textContent = 'Agregar al carrito';
-        boton.addEventListener('click', () => {
-            agregarAlCarrito(producto);
+                contenedor.appendChild(tarjeta);
+            });
+        })
+        .catch((err) => {
+            console.log(err);
         });
-
-        tarjeta.appendChild(img);
-        tarjeta.appendChild(titulo);
-        tarjeta.appendChild(precio);
-        tarjeta.appendChild(boton);
-
-        contenedor.appendChild(tarjeta);
-    });
-})
-.catch((err) => {
-    console.log(err);
 });
      
