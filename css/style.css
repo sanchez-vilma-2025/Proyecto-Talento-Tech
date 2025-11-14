@@ -1,20 +1,22 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
- }
+}
 
  html {
     font-size: 62.5%;
- }
+}
 
- body{
+body {
     font-family: "Saira Condensed", sans-serif; 
     font-size: 1.6rem;
     line-height: 1.5;
-    background-color: #f5f5f5 ;
+    background-color: #f5f5f5;
     color: #333;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
  }
 
    .header {
@@ -22,6 +24,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
     
    }
 
@@ -56,7 +59,7 @@
    }
 
    .header__nav li{
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
    }
    .header__nav a{
@@ -75,6 +78,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: auto;
    }
 
    .footer nav ul{
@@ -84,7 +88,27 @@
       justify-content: center;
       gap: 2rem;
    }
-
+.botones{
+      background-color: #9B2A44;
+      color: green;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      cursor: pointer;
+}
+.btn-vaciar-carrito {
+    background-color: #F527DA;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
    main{
       width: 90%;
       flex: 1;
@@ -122,26 +146,32 @@
     flex-wrap: wrap;
     gap: 2rem;
     padding: 20px;
+    width: 100%;
 }
 
 .tarjeta-producto{
     background-color: #F52768;
-    padding: 0.5rem;
+    padding: 1.5rem;
     border-radius: 1rem;
     width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .tarjeta-producto img{
     width: 100%;
     border-radius: 0.5rem;
+    height: 200px;
+    object-fit: cover;
 }
 
 .tarjeta-producto h3{
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    text-align: center;
+    color: white;
 }
 
 .tarjeta-producto p{
@@ -151,7 +181,7 @@
 
 .form{
     background-color: #27C5F5;
-    padding: 5rem;
+    padding: 3rem;
     border-radius: 1rem;
     width: 45rem;
     margin: auto;
@@ -197,7 +227,8 @@
     margin-top: 2rem;
     display: flex;
     gap: 2rem;
-    
+    justify-content: center;
+     }  
 @media (max-width: 768px) {
     .header{
         display: flex;
